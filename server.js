@@ -16,9 +16,11 @@ app.post('/',(req,res)=>{
     if (!username){
         return res.status(400).json({error:"Username cannot be empty"})
     }
-    if(password.length()<8 || password.length()>16){
+    if(password.length()<8 && password.length()>16){
         return res.status(400).json({error:"Password length should be greater than 8 or less than or equal to 16"})
     }
+
+
 
     res.json({
         message:"Login successful",
@@ -30,4 +32,6 @@ app.post('/',(req,res)=>{
 app.listen(3000,()=>{
     console.log("Server is running on port 3000");
 })
+
+
 
